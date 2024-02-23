@@ -1,18 +1,68 @@
-# Salesforce DX Project: Next Steps
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+# Implementation of a DataTable Component Using Apex Controller with Wrapper Class for SObject Data Retrieval Exercise
 
-## How Do You Plan to Deploy Your Changes?
+******************************************-------------------------------*********************************
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+# Salesforce Lightning Web Component and Apex Class Creation and Deployment
 
-## Configure Your Salesforce DX Project
+This guide provides instructions on how to create a Lightning Web Component (LWC) and an Apex class in Salesforce using Salesforce DX (SFDX) in Visual Studio Code, and how to deploy them to your Salesforce org.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## Prerequisites
 
-## Read All About It
+Before you begin, ensure you have the following installed:
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Salesforce CLI
+Visual Studio Code
+Salesforce Extension Pack for Visual Studio Code
+
+## Setup
+
+### Authenticate Your Salesforce Org:
+
+Use the Salesforce CLI to authenticate your target Salesforce org. Open the terminal in Visual Studio Code and run the following command:
+
+sfdx auth:web:login --setalias YourOrgAlias --instanceurl https://login.salesforce.com
+
+Replace YourOrgAlias with a unique alias for your Salesforce org. If you are working with a Sandbox, replace https://login.salesforce.com with https://test.salesforce.com.
+
+### Create a New SFDX Project:
+
+Run the following command in the terminal to create a new SFDX project:
+
+sfdx force:project:create --projectname YourProjectName
+
+Replace YourProjectName with the name of your project.
+
+### Navigate to Your Project Directory:
+
+cd YourProjectName
+
+## Create a Lightning Web Component
+
+### Generate an LWC:
+
+Run the following command to create a new LWC:
+
+sfdx force:lightning:component:create --type lwc --componentname YourComponentName --outputdir force-app/main/default/lwc
+
+Replace YourComponentName with the name of your new component.
+
+## Create an Apex Class
+
+### Generate an Apex Class:
+
+Run the following command to create a new Apex class:
+
+sfdx force:apex:class:create --classname YourClassName --outputdir force-app/main/default/classes
+
+Replace YourClassName with the name of your new Apex class.
+
+## Deploy to Salesforce
+
+### Deploy Your Project:
+
+To deploy your LWC and Apex class to your Salesforce org, run the following command:
+
+sfdx force:source:deploy --targetusername YourOrgAlias --sourcepath force-app
+
+Replace YourOrgAlias with the alias you set for your Salesforce org during authentication.
